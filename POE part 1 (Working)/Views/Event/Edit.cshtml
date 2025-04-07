@@ -1,0 +1,36 @@
+﻿@model EventEaseBookingSystem.Models.Event
+
+@{
+    ViewData["Title"] = "Edit Event";
+}
+
+<div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+    <h2 class="text-primary fw-semibold mb-4">Edit Event</h2>
+
+    <form asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="EventName" class="form-label fw-semibold text-primary"></label>
+            <input asp-for="EventName" class="form-control border-primary-subtle" />
+            <span asp-validation-for="EventName" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EventDate" class="form-label fw-semibold text-primary"></label>
+            <input asp-for="EventDate" type="date" class="form-control border-primary-subtle" />
+            <span asp-validation-for="EventDate" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="VenueId" class="form-label fw-semibold text-primary">Venue</label>
+            <select asp-for="VenueId" class="form-select border-primary-subtle" asp-items="ViewBag.VenueId"></select>
+            <span asp-validation-for="VenueId" class="text-danger small"></span>
+        </div>
+
+        <input type="hidden" asp-for="EventId" />
+
+        <div class="d-flex gap-3 mt-4">
+            <button type="submit" class="btn btn-primary px-4">Save</button>
+            <a asp-action="Index" class="btn btn-outline-secondary px-4">Cancel</a>
+        </div>
+    </form>
+</div>
